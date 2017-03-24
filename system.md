@@ -101,3 +101,12 @@ iszero (succ nv1) -> false
 -----------------------
 iszero t1 -> iszero t'1
 ```
+
+## 例
+
+1. if true 0 (succ 0) -> 0
+2. if false 0 (succ 0) -> succ 0
+3. pred (succ 0) -> 0
+4. iszero 0 -> true
+5. iszero (succ 0) -> false
+6. if (iszero 0) false true -> false
