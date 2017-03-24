@@ -24,13 +24,13 @@ eval1 :: Term ->  Term
 eval1 (TmIf TmTrue x _) = x
 eval1 (TmIf TmFalse _ y) = y
 eval1 (TmIf b x y) = TmIf (eval1 b) x y
-eval1 (TmSucc x) = TmSucc $ eval1 x
+eval1 (TmSucc x) = TmSucc (eval1 x)
 eval1 (TmPred TmZero) = TmZero
 eval1 (TmPred (TmSucc x)) | isnumericval x = x
-eval1 (TmPred x) = TmPred $ eval1 x
+eval1 (TmPred x) = TmPred (eval1 x)
 eval1 (TmIsZero TmZero) = TmTrue
 eval1 (TmIsZero (TmSucc x)) | isnumericval x = TmFalse
-eval1 (TmIsZero x) = TmIsZero $ eval1 x
+eval1 (TmIsZero x) = TmIsZero (eval1 x)
 eval1 x = x
 
 eval :: Term -> Term
